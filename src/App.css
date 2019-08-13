@@ -1,33 +1,89 @@
-.App {
-  text-align: center;
+body {
+  font-family: 'Poppins', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.navbar-toggler {
+  border: none !important;
+  outline: 0 !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar-toggler:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.navbar-toggler:active span {
+  background-size: 90% 90%;
+  transition: all .2s
+}
+
+.nav-link::after {
+  content: '';
+  display: block;
+  background: transparent;
+  height: 3px;
+  width: 0%;
+}
+
+.nav-item:hover .nav-link::after {
+  transition: all .5s;
+  width: 3%;
+  background: #000;
+}
+
+.form {
+  background-image: linear-gradient(#00000042, #00000042), url("./images/81744.jpg");
+  background-size: cover;
+  width: 50%;
+  padding: 10%;
+  height: 70vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border-top-left-radius: 1.7em;
+  border-bottom-left-radius: 1.7em;
 }
 
-.App-link {
-  color: #61dafb;
+.form-control:focus {
+  box-shadow: 0 0 0 6px #bd5d72bc;
+  outline: 0;
+  border: none;
+  transition: all .2s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.output {
+  width: 50%;
+  padding: 10%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-top-right-radius: 1.7em;
+  border-bottom-right-radius: 1.7em;
+  background: #bd5d72bc;
+  color: blanchedalmond;
+}
+
+h3::after {
+  content: '';
+  margin-top: .5  rem;
+  display: block;
+  height: 2px;
+  width: 30%;
+  background: #ffebcd
+}
+
+.output > p {
+  font-size: larger;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sbt-btn:hover {
+  box-shadow: 0 0 0 6px #aae5e5;
+  transition: all .2s;
 }

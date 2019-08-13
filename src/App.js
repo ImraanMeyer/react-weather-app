@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import Form from './components/Form';
 import Weather from './components/Weather';
+import { Container } from 'reactstrap';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
 
 // openweather API Key
 const API_KEY = "55124ea2024b8eac85c1c5b5dc82062e";
@@ -15,7 +18,8 @@ export default class App extends Component {
     humidity: undefined,
     description: undefined,
     error: undefined,
-    cod: undefined
+    cod: undefined,
+    loading: undefined
   }
 
   getWeather = async (e) => {
@@ -47,6 +51,7 @@ export default class App extends Component {
           humidity: data.main.humidity,
           description: data.weather[0].description,
           error: undefined,
+          loading: true
         })
       }
     } else {
@@ -64,22 +69,23 @@ export default class App extends Component {
 
   render() {
     // Deconstructing state 
-    const { temprature, city, country, humidity, description, error } = this.state;
+    const { temprature, city, country, humidity, description, error, loading, hasData } = this.state;
 
     return (
       <div>
-        <h1>App Component</h1>
         <Header />
-        <Form getWeather={this.getWeather} />
-
-        <Weather
-          temprature={temprature}
-          city={city}
-          country={country}
-          humidity={humidity}
-          description={description}
-          error={error}
-        />
+        <Container style={{ display: 'flex' }}>
+          <Form getWeather={this.getWeather} />
+          <Weather ref={ref => (this.wrapper = ref)}
+            temprature={temprature}
+            city={city}
+            country={country}
+            humidity={humidity}
+            description={description}
+            error={error}
+            loading={loading}
+          />
+        </Container>
       </div>
     )
   }
