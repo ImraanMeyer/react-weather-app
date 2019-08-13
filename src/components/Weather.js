@@ -36,23 +36,14 @@ export default class Weather extends Component {
     }
 
     render() {
-
         // Deconstructing state 
-        const { temprature, city, country, humidity, description, error, loading, hasData } = this.props;
+        const { temprature, city, country, humidity, description, error, loading } = this.props;
 
         return (
             <Container className="output">
-                {
-                    error &&
-                    <Alert color="danger"
-                        isOpen={this.state.visible}
-                        toggle={this.onDismiss.bind(this)}
-                        style={alertStyles}
-                    >{error}
-                    </Alert>
-                }
                 {!loading ? (
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        {error && <Alert color="danger" isOpen={this.state.visible} toggle={this.onDismiss.bind(this)} style={alertStyles}>{error}</Alert>}
                         <Lottie options={defaultOptions} height={400} width={400} />
                     </div>
                 ) : (
