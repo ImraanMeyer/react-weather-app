@@ -61,7 +61,7 @@ export default class App extends Component {
         country: undefined,
         humidity: undefined,
         description: undefined,
-        error: "Please enter the values!"
+        error: "Please enter a city and country!"
       })
     }
   }

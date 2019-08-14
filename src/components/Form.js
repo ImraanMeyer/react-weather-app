@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { Button, Input, Alert } from 'reactstrap';
 
 export default class Form extends Component {
-
     state = {
         visible: false
     }
+
     // Dismiss alerts
     onDismiss() {
         this.setState({
@@ -18,7 +18,6 @@ export default class Form extends Component {
             visible: true
         })
     }
-
 
     render() {
         return (

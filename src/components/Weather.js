@@ -18,6 +18,7 @@ export default class Weather extends Component {
     state = {
         visible: true
     }
+
     // Dismiss alerts
     onDismiss() {
         this.setState({
