@@ -11,13 +11,16 @@
     "react-fade-in": "^0.1.6",
     "react-lottie": "^1.2.3",
     "react-scripts": "3.1.0",
-    "reactstrap": "^8.0.1"
+    "reactstrap": "^8.0.1",
+    "serve": "^11.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "react-scripts start",
+    "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
