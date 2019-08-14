@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Alert, Container, Fade } from 'reactstrap';
+import { Alert, Container } from 'reactstrap';
 import FadeIn from "react-fade-in";
 import Lottie from "react-lottie";
 
 import * as lottie from '../helpers/weather.lottie.json'
 
+// Options for Lottie
 const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -13,26 +14,15 @@ const defaultOptions = {
         preserveAspectRatio: "xMidYMid slice"
     }
 }
-
-
 export default class Weather extends Component {
     state = {
-        visible: true,
-        hasData: undefined
+        visible: true
     }
-
+    // Dismiss alerts
     onDismiss() {
         this.setState({
             visible: !this.state.visible
         })
-    }
-
-    componentDidMount() {
-        this.props.loading ? (this.setState({
-            hasData: true
-        })) : (this.setState({
-            hasData: !this.state.hasData
-        }))
     }
 
     render() {
@@ -43,18 +33,29 @@ export default class Weather extends Component {
             <Container className="output">
                 {!loading ? (
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        {error && <Alert color="danger" isOpen={this.state.visible} toggle={this.onDismiss.bind(this)} style={alertStyles}>{error}</Alert>}
+                        {error && <Alert color="danger" isOpen={this.state.visible} fade={true} toggle={this.onDismiss.bind(this)} style={alertStyles}>{error}</Alert>}
                         <Lottie options={defaultOptions} height={400} width={400} />
                     </div>
                 ) : (
                         <FadeIn >
-                            {city && country && <h3>{city}, {country}</h3>}
+                            <h3>{city}, {country}</h3>
 
-                            {temprature && <div><p>Temprature:</p> <p>{temprature}C</p></div>}
+                            <div className="Faded">
+                                <div>
+                                    <p>Temprature:</p>
+                                    <p>{temprature}C</p>
+                                </div>
 
-                            {humidity && <p>Humidy: {humidity}</p>}
+                                <div>
+                                    <p>Humidity:</p>
+                                    <p>{humidity}</p>
+                                </div>
 
-                            {description && <p style={{ textTransform: 'capitalize' }}>Description: {description}</p>}
+                                <div>
+                                    <p>Description: </p>
+                                    <p style={{ textTransform: 'capitalize' }}>{description}</p>
+                                </div>
+                            </div>
                         </FadeIn>
                     )}
             </Container >

@@ -69,18 +69,37 @@ body {
 
 h3::after {
   content: '';
-  margin-top: .5  rem;
+  margin-top: .7rem;
   display: block;
   height: 2px;
   width: 30%;
   background: #ffebcd
 }
 
-.output > p {
+div > p {
   font-size: larger;
+}
+
+.Faded {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Faded > div {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.Faded > div:last-of-type {
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Faded > div > p:first-of-type {
+  font-weight: bold;
 }
 
 .sbt-btn:hover {

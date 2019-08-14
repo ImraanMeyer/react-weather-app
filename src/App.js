@@ -64,12 +64,11 @@ export default class App extends Component {
         error: "Please enter the values!"
       })
     }
-    console.log(this.state)
   }
 
   render() {
     // Deconstructing state 
-    const { temprature, city, country, humidity, description, error, loading, hasData } = this.state;
+    const { temprature, city, country, humidity, description, error, loading } = this.state;
 
     return (
       <div>
