@@ -23,7 +23,7 @@ export default class Header extends Component {
             <Container fluid={true} style={container}>
                 <Container fluid={false}>
                     <Navbar color="faded" light>
-                        <NavbarBrand href="/" className="mr-auto">SimpleWeather</NavbarBrand>
+                        <NavbarBrand href="#" className="mr-auto">SimpleWeather</NavbarBrand>
                         <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
                         <Collapse isOpen={!this.state.collapsed} navbar>
                             <Nav navbar>
